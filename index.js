@@ -212,3 +212,6 @@ light.addEventListener("click", function (e) {
 
 // loadItems
 loadItems();
+
+
+
