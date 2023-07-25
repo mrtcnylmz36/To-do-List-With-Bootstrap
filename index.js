@@ -143,25 +143,25 @@ listGroup.addEventListener("click", function (e) {
         saveBtn.addEventListener("click", function () {
           let input = document.querySelector("#modalInput");
           let inputValueSetLS = input.value;
-          
-            function edit(text) {
-              let taskArray = getItemsFromLs();
-              taskArray.forEach(function (item, index) {
-                if (text.innerText.includes(item)) {
-                  // taskArray.splice(index, 1);
 
-                  taskArray[index] = inputValueSetLS;
+          function edit(text) {
+            let taskArray = getItemsFromLs();
+            taskArray.forEach(function (item, index) {
+              if (text.innerText.includes(item)) {
+                // taskArray.splice(index, 1);
 
-                  // setItemToLs(inputValueSetLS);
-                }
-              });
-              localStorage.setItem("tasks", JSON.stringify(taskArray));
-              console.log("text", text.innerText.includes(1));
-            }
+                taskArray[index] = inputValueSetLS;
 
-            edit(target.target.parentNode.parentNode);
+                // setItemToLs(inputValueSetLS);
+              }
+            });
+            localStorage.setItem("tasks", JSON.stringify(taskArray));
+            console.log("text", text.innerText.includes(1));
+          }
 
-            target.target.parentNode.parentNode.innerHTML = `
+          edit(target.target.parentNode.parentNode);
+
+          target.target.parentNode.parentNode.innerHTML = `
               ${inputValueSetLS}
               <div>
                 <i class="fa-solid fa-trash me-2"></i>
@@ -169,10 +169,9 @@ listGroup.addEventListener("click", function (e) {
               </div>
             `;
 
-            input.value = "";
+          input.value = "";
 
-            modalObj.hide();
-
+          modalObj.hide();
         });
       });
     }
@@ -188,6 +187,7 @@ dark.addEventListener("click", function (e) {
   e.stopPropagation();
 
   let body = document.querySelector("body");
+  body.classList.add("animate__flipOutY");
   body.classList.remove("bg-one");
   body.classList.add("bg-two");
   console.log("click");
@@ -201,6 +201,7 @@ light.addEventListener("click", function (e) {
   e.stopPropagation();
 
   let body = document.querySelector("body");
+  body.classList.remove("animate__flipOutY");
   body.classList.remove("bg-two");
   body.classList.add("bg-one");
   console.log("click");
@@ -212,6 +213,3 @@ light.addEventListener("click", function (e) {
 
 // loadItems
 loadItems();
-
-
-

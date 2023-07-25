@@ -28,6 +28,7 @@ body {
   display: flex;
   justify-content: center;
   position: relative;
+  overflow-x: hidden;
 }
 
 .bg-one {
